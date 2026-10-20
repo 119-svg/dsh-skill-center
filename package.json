@@ -1,0 +1,47 @@
+{
+  "name": "dsh-skill-folder",
+  "version": "0.3.4-fork.2",
+  "description": "Fold the DSH skill catalog prompt surface: render each skill as name + short tagline (read-only overrides from ~/.dsh/skills-center.json), plus a read-only skill_search tool for intent-based lookup. Rendering-only fold: source.entries stay untouched, the host `skill` tool and /name injection stay host-owned.",
+  "keywords": [
+    "dsh-plugin",
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "skill",
+    "skill-folder",
+    "tagline",
+    "token-optimization",
+    "bm25",
+    "kv-cache",
+    "skill-search"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client/client.js",
+    "./lib/*": "./lib/*"
+  },
+  "files": [
+    "lib",
+    "client",
+    "cordis.patch.yml",
+    "README.md",
+    "NOTES.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout"
+      ]
+    }
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

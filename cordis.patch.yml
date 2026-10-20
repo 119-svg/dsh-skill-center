@@ -1,0 +1,9 @@
+# dsh-skill-folder bundle patch
+#
+# 顶层是**操作列表**（本机 Loader 的 patch 方言：`- insert:` 是列表项里的键，
+# 不是映射的键；对照参考实现与本机 profile 的 cordis.patch.yml）。
+# 只做 insert：新增本插件一行，不去动宿主既有行（尤其不碰
+# `@deepseek-ai/dsh-tool-skill`：`skill` 工具与 /name 注入必须留在宿主手里）。
+- insert:
+    - id: skill-folder
+      name: 'dsh-skill-folder'
